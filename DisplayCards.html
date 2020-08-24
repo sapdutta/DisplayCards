@@ -1,0 +1,129 @@
+<!-- This code is written by Saptarshi Dutta  -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+.card {
+  border: none;   
+  width:200px;
+  height: 200px;
+  text-align: center;
+  text-decoration: none;  
+  font-size: 144px;  
+  cursor: pointer;
+  position: relative;
+}   
+
+.button {
+  border: 1px;   
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  text-decoration: none;  
+  font-size: 14px;  
+  cursor: pointer;
+  position: relative;
+  background-color: rgb(131, 187, 236);
+}
+
+
+</style>
+</head>
+
+<body onload="DisplayButtons(false)">
+
+    <script>
+
+        let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];        
+        let BGColor = ["#BFBFBF", "#2F454E", "#72C3DC", "#2B8EAD", "#6F98A8", "#333333",  "#567b8a", "#EFEFEF", "#8b8383"];  
+
+        var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);      
+        
+        if (isMobile == false)
+          window.innerWidth = 960;
+        else
+          window.innerWidth = 375;
+
+        function DisplayButtons(ShufflingRequired)
+        {
+            var element ;
+
+            if (ShufflingRequired == true) 
+            {
+                shuffleArray(arr);
+            }
+            else
+            {
+                arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+            }           
+
+            for (i = 1; i < 10; i++) { 
+
+                element = document.getElementById("Number" + i);               
+
+                element.innerHTML = arr[i-1];
+
+                element.style.backgroundColor = BGColor[arr[i-1]-1];
+            }
+           
+        }          
+
+        function shuffleArray(array) {
+            array.sort(() => Math.random() - 0.5);
+        }
+
+    </script>
+
+
+<table border=0>
+  <tr>
+    <td colspan=2 align="center">
+      Shuffle and Sort
+  </td>
+  </tr>
+    <tr>
+      <td width = "70%">
+        <Table>
+          <tr>
+              
+              <td class="card" ID="Number1">1</td>
+              <td class="card" ID="Number2">2</td>
+              <td class="card" ID="Number3">3</td>
+          </tr>
+
+          <tr>
+              <td class="card" ID="Number4">4</td>
+              <td class="card" ID="Number5">5</td>
+              <td class="card" ID="Number6">6</td>
+          </tr>
+
+          <tr>
+              <td class="card" ID="Number7">7</td>
+              <td class="card" ID="Number8">8</td>
+              <td class="card" ID="Number9">9</td>
+          </tr>
+        </Table>
+      </td>
+      <td width="30%" valign="top"> 
+        <br /> <br />
+        <button ID = "btnShuffle" class="button" onclick="return DisplayButtons(true)">Shuffle</button> <br /> <br />
+        <button ID = "btnSort" class="button" onclick="return DisplayButtons(false)">Sort</button>
+
+      </td>
+          
+      
+    </tr>
+
+    <tr>
+      <td colspan=2 align="center">
+        Shuffle and Sort By Saptarshi Dutta
+    </td>
+    </tr>
+
+</table>
+ 
+
+</body>
+</html>
